@@ -1,5 +1,5 @@
 const data = [];
-for (let i = 3; i <= 50; i++) {
+for (let i = 1; i <= 10; i++) {
   const amount = parseFloat((Math.random() * 50000000 + 10000000).toFixed(0));
   const collected = parseFloat(
     (Math.random() * 50000000 + 10000000).toFixed(0)
