@@ -3,12 +3,12 @@ for (let i = 1; i <= 50; i++) {
   data.push({
     id: i,
     customer: `CTY ${i.toString().padStart(2, "0")}`,
-    currentDebt: `${(Math.random() * 100000000).toFixed(0)}`,
-    debt: `${(Math.random() * 100000000).toFixed(0)}`,
+    currentDebt: Math.floor(Math.random() * 1000000),
+    debt: `${(Math.random() * 1000)}`,
     debtTerm: 60,
-    overdueDebt: `${(Math.random() * 50000).toFixed(0)}`,
+    overdueDebt: Math.floor(Math.random() * 1000000),
     dueDate: "0",
-    paymentInPeriod: "",
+    paymentInPeriod: Math.floor(Math.random() * 1000000),
     paymentDate: "0",
     totalDelivery: "0",
     uncheckedDebt: "0",
@@ -32,16 +32,16 @@ function loadTable() {
     tr.setAttribute("onclick", "redirectToDetailPage()");
     tr.innerHTML = `
                     <td class="fixed-column">${row.customer}</td>
-                    <td class="fixed-column-2">${row.currentDebt}</td>
-                    <td>${row.debt}</td>
+                    <td class="fixed-column-2">${formatNumber(row.currentDebt)}</td>
                     <td>${row.debtTerm}</td>
-                    <td>${row.overdueDebt}</td>
+                    <td>${formatNumber(row.overdueDebt)}</td>
                     <td>${row.dueDate}</td>
-                    <td>${row.paymentInPeriod}</td>
+                    <td>${formatNumber(row.paymentInPeriod)}</td>
                     <td>${row.paymentDate}</td>
                     <td>${row.totalDelivery}</td>
                     <td>${row.uncheckedDebt}</td>
                     <td>${row.manager}</td>
+                    <td>${row.debt}</td>
                 `;
     tableBody.appendChild(tr);
   });
@@ -98,4 +98,8 @@ function searchFunction() {
 
 function redirectToDetailPage(quotationId) {
   window.location.href = `ChiTietCN.html`;
+}
+
+function formatNumber(number) {
+  return number.toLocaleString("en-US");
 }

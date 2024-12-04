@@ -41,9 +41,11 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
+        
         table {
             width: 100%;
             table-layout: auto;
+            
         }
         th, td {
             white-space: nowrap;
@@ -65,6 +67,11 @@
             margin-left: 20px;
         }
 
+        #quotationTable th, #quotationTable td {
+            padding: 5px; /* Hoặc giá trị bạn muốn */
+        }
+
+
         input[type="date"] {
             max-width: 50%;
         }
@@ -79,12 +86,11 @@
         </div>
         
         <div class="table-responsive">
-            <table id="quotationTable" class="table table-bordered table-hover">
+            <table id="quotationTable" class="table table-bordered table-hover" style="padding: 5px;">
                 <thead class="table-light">
                     <tr>
                         <th class="fixed-column">Khách hàng</th>
                         <th class="fixed-column-2">Công nợ hiện tại</th>
-                        <th>Công nợ</th>
                         <th>Hạn CN</th>
                         <th>Công nợ quá hạn</th>
                         <th>Ngày đến hạn</th>
@@ -93,6 +99,7 @@
                         <th>Tổng giao hàng</th>
                         <th>Công nợ chưa đối chiếu</th>
                         <th>Phụ trách</th>
+                        <th>Công nợ</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
