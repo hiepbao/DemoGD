@@ -110,7 +110,7 @@ function searchFunction() {
 }
 
 function redirectToDetailPage(quotationId) {
-  window.location.href = `ChiTietdon.html`;
+  window.location.href = `ChiTietDon.html`;
 }
 
 function formatQuantity(quantity) {

@@ -97,5 +97,5 @@ function searchFunction() {
 }
 
 function redirectToDetailPage(quotationId) {
-  window.location.href = `ChitietCN.html`;
+  window.location.href = `ChiTietCN.html`;
 }
