@@ -30,10 +30,10 @@ function loadTable() {
     tr.innerHTML = `
                     <td class="fixed-column">${row.customer}</td>
                     <td class="fixed-column-2">${row.manager}</td>
-                    <td class="fixed-column-2">${row.recent}</td>
                     <td class="fixed-column-2">${formatNumber(row.total)}</td>
                     <td class="fixed-column-2">${formatWeight(row.nw)}</td>
                     <td class="fixed-column-2">${formatWeight(row.gw)}</td>
+                    <td class="fixed-column-2">${row.recent}</td>
                 `;
     tableBody.appendChild(tr);
   });
