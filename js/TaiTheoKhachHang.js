@@ -2,10 +2,11 @@ const data = [];
 for (let i = 1; i <= 50; i++) {
   data.push({
     id: i,
-    customer: `CTY ${i.toString().padStart(50, "0")}`,
+    customer: `CTYaaaaaaaaaaaaaaaaa
+ssssssssssssssssssssssss ${i.toString().padStart(50, "0")}`,
     manager: i % 2 === 0 ? "Tân An Bel" : "Lê Khác Hòa",
     recent: "20-08-2024",
-    total: `${(Math.random() * 1000000000 + 500000000).toFixed(0)}`,
+    total:  Math.floor(Math.random() * 15000000) + 1000000,
     nw: (Math.random() * 50000).toFixed(2),
     gw: (Math.random() * 50000 + 500).toFixed(2),
   });
@@ -29,10 +30,10 @@ function loadTable() {
     tr.innerHTML = `
                     <td class="fixed-column">${row.customer}</td>
                     <td class="fixed-column-2">${row.manager}</td>
-                    <td class="fixed-column-3">${row.recent}</td>
-                    <td class="fixed-column-3">${row.total}</td>
-                    <td class="fixed-column-3">${row.nw}</td>
-                    <td class="fixed-column-3">${row.gw}</td>
+                    <td class="fixed-column-2">${row.recent}</td>
+                    <td class="fixed-column-2">${formatNumber(row.total)}</td>
+                    <td class="fixed-column-2">${formatWeight(row.nw)}</td>
+                    <td class="fixed-column-2">${formatWeight(row.gw)}</td>
                 `;
     tableBody.appendChild(tr);
   });
@@ -89,4 +90,12 @@ function searchFunction() {
 
 function redirectToDetailPage(quotationId) {
   window.location.href = `ChiTietTai.html`;
+}
+
+function formatWeight(weight) {
+  return weight.toLocaleString() + '0';
+}
+
+function formatNumber(number) {
+  return number.toLocaleString('en-US');
 }

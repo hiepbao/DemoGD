@@ -10,8 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         .fixed-column {
-            width: 50px;
-            white-space: nowrap; 
+            white-space: pre; 
+            width: 100px; 
             overflow: hidden;
             text-overflow: ellipsis; 
             position: sticky;
@@ -20,6 +20,8 @@
             z-index: 2;
         }
         .fixed-column-2 {
+            width: 80px;
+            height: 45px;
             position: sticky;
             left: 80px;
             background-color: #fff;
@@ -42,8 +44,9 @@
             -webkit-overflow-scrolling: touch;
         }
         table {
-            width: 100%;
-            table-layout: auto;
+            /* width: 100%; */
+            
+            table-layout: fixed;
         }
         th, td {
             white-space: nowrap;
@@ -64,6 +67,13 @@
         .pagination select {
             margin-left: 20px;
         }
+        label{
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            width: 100%; 
+            font-size: 14px;
+        }
     </style>
 </head>
 <body onload="loadHeader(); loadFooter()">
@@ -75,32 +85,23 @@
         </div>
         <div class="mb-3">
             <div class="row align-items-center">
-                <label for="monthYearSelect" class="col-form-label col-4">Chọn tháng:</label>
+                <label for="monthYearSelect" class="col-form-label col-4" style="font-size: 14px;">Chọn tháng:</label>
                 <div class="col-8">
                     <input type="month" id="monthYearSelect" class="form-control" value="2024-08">
                 </div>
             </div>
         </div>
-        <div class="justify-content-between mb-3">
-            <div class="d-flex align-items-center">
-                <label class="me-3" for="rowsPerPage">Số dòng:</label>
-                <select id="rowsPerPage" class="form-select" style="width: 30%;" onchange="changeRowsPerPage()">
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="50">100</option>
-                </select>
-            </div>
-        </div>
+        
         <div class="table-responsive">
             <table id="quotationTable" class="table table-bordered table-hover">
                 <thead class="table-light">
                     <tr>
                         <th class="fixed-column">Khách hàng</th>
                         <th class="fixed-column-2">Phụ trách</th>
-                        <th class="fixed-column-3">Gần đây</th>
-                        <th class="fixed-column-3">Tổng tiền</th>
-                        <th class="fixed-column-3">TL (N.W)</th>
-                        <th class="fixed-column-3">TL (G.W)</th>
+                        <th class="fixed-column-2">Gần đây</th>
+                        <th class="fixed-column-2">Tổng tiền</th>
+                        <th class="fixed-column-2">TL (N.W)</th>
+                        <th class="fixed-column-2">TL (G.W)</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -109,7 +110,19 @@
             </table>
         </div>
         <!-- Phân trang -->
-        <div id="pagination" class="pagination"></div>
+        <div class="row mb-3">
+            <div class="justify-content-between col-6" style="margin-top: 20px;">
+                <div class="d-flex align-items-center">
+                    <label class="" for="rowsPerPage">Số dòng:</label>
+                    <select id="rowsPerPage" class="form-select" style="width: 50%;" onchange="changeRowsPerPage()">
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="50">100</option>
+                    </select>
+                </div>
+            </div>
+            <div id="pagination" class="pagination col-6"></div>
+         </div>
     </div>
     <script src="../components/commonLayout.js"></script>
     <script src="../js/auth.js"></script>

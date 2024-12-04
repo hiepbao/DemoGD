@@ -15,25 +15,32 @@
             font-size: 12px;
             /* width: 10%; */
         }
+        label{
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            width: 100%; 
+            font-size: 14px;
+        }
     </style>
 </head>
 <body onload="loadHeader(); loadFooter()">
     <div id="header-placeholder"></div>
     <div class="container">
         <h2 class="text-center mb-4">Chi tiết tải theo khách hàng</h2>
-        <div class="mb-3">
+        <div class="">
             <div class="row">
                 <div class="row"> 
-                    <p class="col-4"> Khách hàng:</p>
-                    <p class="col-8">CTY 01</p>
+                    <label class="col-4"> Khách hàng:</label>
+                    <label class="col-8">CTY 01</label>
                 </div>
                 <div class="row"> 
-                    <p class="col-4"> Phụ trách:</p>
-                    <p class="col-8">Lê Khác Hòa</p>
+                    <label class="col-4"> Phụ trách:</label>
+                    <label class="col-8">Lê Khác Hòa</label>
                 </div>
                 <div class="row"> 
-                    <p class="col-4"> Năm:</p>
-                    <p class="col-8">2024</p>
+                    <label class="col-4"> Năm:</label>
+                    <label class="col-8">2024</label>
                 </div>
             </div>
         </div>

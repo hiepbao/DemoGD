@@ -31,8 +31,8 @@ function loadTable() {
                     <td class="fixed-column-2">${row.name}</td>
                     <td>${row.specs}</td>
                     <td>${row.unit}</td>
-                    <td>${row.price}</td>
-                    <td>${row.oldPrice}</td>
+                    <td>${formatNumber(row.price)}</td>
+                    <td>${formatNumber(row.oldPrice)}</td>
                     <td>${row.note}</td>
                 `;
     tableBody.appendChild(tr);
@@ -68,3 +68,7 @@ function changeRowsPerPage() {
 }
 
 loadTable();
+
+function formatNumber(number) {
+  return number.toLocaleString('en-US');
+}

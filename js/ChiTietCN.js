@@ -34,9 +34,9 @@ function loadTable() {
                     <td class="fixed-column">${row.month}</td>
                     <td class="fixed-column-2">${row.date}</td>
                     <td>${row.invoiceNumber}</td>
-                    <td>${row.amount}</td>
-                    <td>${row.collected}</td>
-                    <td>${row.remaining}</td>
+                    <td>${formatNumber(row.amount)}</td>
+                    <td>${formatNumber(row.collected)}</td>
+                    <td>${formatNumber(row.remaining)}</td>
                 `;
     tableBody.appendChild(tr);
   });
@@ -94,4 +94,8 @@ function searchFunction() {
 
 function redirectToDetailPage(quotationId) {
   window.location.href = `details.html?id=${quotationId}`;
+}
+
+function formatNumber(number) {
+  return number.toLocaleString('en-US');
 }

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Kiểm tra thông tin đăng nhập
-        if (userName === "admin" && password === "1") {
+        if (userName === "admin" && password === "123456") {
             // sessionStorage.setItem("loggedIn", "true");
             // sessionStorage.setItem("username", userName); 
             localStorage.setItem("loggedIn", "true");

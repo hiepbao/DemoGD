@@ -1,9 +1,6 @@
-const data = [
-    {id: 1, customer: "Đinh F10", specs: "F10", quantity: 450, unit: "Hộp", price: 13000, value: 5875000, vat: 587500, total: 6462720, weight: 219.15, debt: ""},
-    {id: 2, customer: "Đinh F20", specs: "F20", quantity: 590, unit: "Hộp", price: 15456, value: 9119040, vat: 911904, total: 10030944, weight: 353.41, debt: ""}
-];
+const data = [];
 
-for (let i = 3; i <= 10; i++) {
+for (let i = 1; i <= 10; i++) {
     data.push({
         id: i,
         customer: `Đinh F${i * 10}`,
@@ -36,13 +33,13 @@ function loadTable() {
         tr.innerHTML = `
             <td class="fixed-column">${row.customer}</td>
             <td class="fixed-column-2">${row.specs}</td>
-            <td>${row.quantity}</td>
+            <td>${formatQuantity(row.quantity)}</td>
             <td>${row.unit}</td>
-            <td>${row.price}</td>
-            <td>${row.value}</td>
-            <td>${row.vat}</td>
-            <td>${row.total}</td>
-            <td>${row.weight}</td>
+            <td>${formatNumber(row.price)}</td>
+            <td>${formatNumber(row.value)}</td>
+            <td>${formatNumber(row.vat)}</td>
+            <td>${formatNumber(row.total)}</td>
+            <td>${formatWeight(row.weight)}</td>
             <td>${row.debt}</td>
         `;
         tableBody.appendChild(tr);
@@ -78,3 +75,22 @@ function changeRowsPerPage() {
 }
 
 loadTable();
+
+function formatQuantity(quantity) {
+    return quantity.toFixed(2);
+}
+
+function formatWeight(weight) {
+    return weight.toLocaleString() + '0';
+}
+
+function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+
+function formatNumber(number) {
+    return number.toLocaleString('en-US');
+}

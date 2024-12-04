@@ -51,7 +51,13 @@
             table-layout: fixed; 
             width: 100%; 
         } */
-
+        label{
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            width: 100%; 
+            font-size: 14px;
+        }
         #quotationTable th, #quotationTable td {
             white-space: nowrap; 
             overflow: hidden; 
@@ -81,13 +87,13 @@
         <h2 class="text-center mb-4">Chi tiết đơn</h2>
         <div class="mb-3">
             <div class="row">
-                <div> <p>Khách Hàng: CTY 01</p></div>
-                <div class="row"> 
-                    <p class="col"> Ngày giao: 20-08-2024</p>
+                <div> <label>Khách Hàng:萬盛（越南）责任有限公司: CTY TNHH  HÀO TRUNG KIỆT (VẠN THỊNH)</label></div>
+                <div class="row" > 
+                    <label class="col-6"> Ngày giao: 20-08-2024</label>
+                    <label class="col-6" style="padding: 0;">Số phiếu: BG240801-01</label>
                 </div>
-                <div class="row"> 
-                    <p class="col">Số phiếu: BG240801-01</p>
-                </div>
+                
+                <div> <label>Số PO: </label></div>
             </div>
         </div>
         <!-- <div class="justify-content-between mb-3">

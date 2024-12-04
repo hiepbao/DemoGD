@@ -60,6 +60,12 @@
         .pagination select {
             margin-left: 20px;
         }
+        label{
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            font-size: 14px;
+        }
     </style>
 </head>
 <body onload="loadHeader(); loadFooter()">
@@ -85,7 +91,7 @@
         <div class="justify-content-between mb-3">
             <div class="d-flex align-items-center">
                 <label class="me-3" for="rowsPerPage">Kho hàng:</label>
-                <select id="warehouseSelect" class="form-select" style="width: 30%;">
+                <select id="warehouseSelect" class="form-select" style="width: 50%;">
                     <option value="DC Thanh Pham" selected>DC Thành Phẩm</option>
                     <option value="DC Nguyen Lieu">DC Nguyên Liệu</option>
                     <option value="DC May Moc">DC Máy Móc</option>
@@ -93,23 +99,13 @@
                 </select>
             </div>
         </div>
-        <div class="justify-content-between mb-3">
-            <div class="d-flex align-items-center">
-                <label class="me-3" for="rowsPerPage">Số dòng:</label>
-                <select id="rowsPerPage" class="form-select" style="width: 30%;" onchange="changeRowsPerPage()">
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="50">100</option>
-                </select>
-            </div>
-        </div>
+        
         <div class="table-responsive">
             <table id="quotationTable" class="table table-bordered table-hover">
                 <thead class="table-light">
                     <tr>
-                        <th class="fixed-column">Kho hàng</th>
-                        <th class="fixed-column-2">Tên hàng</th>
-                        <th>Quy cách</th>
+                        <th class="fixed-column">Tên hàng</th>
+                        <th class="fixed-column-2">Quy cách</th>
                         <th>Đơn vị</th>
                         <th>Lượng tồn</th>
                         <th>SL thùng</th>
@@ -122,7 +118,19 @@
             </table>
         </div>
         <!-- Phân trang -->
-        <div id="pagination" class="pagination"></div>
+        <div class="row mb-3">
+            <div class="justify-content-between col-6" style="margin-top: 20px;">
+                <div class="d-flex align-items-center">
+                    <label class="" for="rowsPerPage">Số dòng:</label>
+                    <select id="rowsPerPage" class="form-select" style="width: 50%;" onchange="changeRowsPerPage()">
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="50">100</option>
+                    </select>
+                </div>
+            </div>
+            <div id="pagination" class="pagination col-6"></div>
+         </div>
     </div>
     <script src="../components/commonLayout.js"></script>
     <script src="../js/auth.js"></script>

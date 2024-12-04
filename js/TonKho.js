@@ -28,12 +28,11 @@ function loadTable() {
     const tr = document.createElement("tr");
     tr.setAttribute("onclick", "redirectToDetailPage()");
     tr.innerHTML = `
-                    <td class="fixed-column">${row.warehouse}</td>
-                    <td class="fixed-column-2">${row.name}</td>
-                    <td>${row.specs}</td>
+                    <td class="fixed-column">${row.name}</td>
+                    <td class="fixed-column-2">${row.specs}</td>
                     <td>${row.unit}</td>
-                    <td>${row.quantity}</td>
-                    <td>${row.boxCount}</td>
+                    <td>${formatQuantity(row.quantity)}</td>
+                    <td>${formatQuantity(row.boxCount)}</td>
                     <td>${row.boxPerCarton}</td>
                 `;
     tableBody.appendChild(tr);
@@ -87,4 +86,8 @@ function searchFunction() {
       }
     }
   }
+}
+
+function formatQuantity(quantity) {
+  return quantity.toFixed(2);
 }
