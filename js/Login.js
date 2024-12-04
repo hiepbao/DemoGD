@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const userName = document.getElementById("UserName").value;
         const password = document.getElementById("Password").value;
 
-        if (userName === "" || password === "") {
-            showNotification("Vui lòng điền đầy đủ thông tin tài khoản và mật khẩu.", "#f44336");
-            return;
-        }
+        // if (userName === "" || password === "") {
+        //     showNotification("Vui lòng điền đầy đủ thông tin tài khoản và mật khẩu.", "#f44336");
+        //     return;
+        // }
 
         // Kiểm tra thông tin đăng nhập
-        if (userName === "admin" && password === "123456") {
+        if (userName === "" && password === "") {
             // sessionStorage.setItem("loggedIn", "true");
             // sessionStorage.setItem("username", userName); 
             localStorage.setItem("loggedIn", "true");
