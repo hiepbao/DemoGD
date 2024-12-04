@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        th, td {
+            white-space: nowrap;
+            text-align: center;
+            font-size: 12px;
+            /* width: 10%; */
+        }
+    </style>
+</head>
+<body onload="loadHeader(); loadFooter()">
+    <div id="header-placeholder"></div>
+    <div class="container">
+        <h2 class="text-center mb-4">Chi tiết tải theo khách hàng</h2>
+        <div class="mb-3">
+            <div class="row">
+                <div class="row"> 
+                    <p class="col-4"> Khách hàng:</p>
+                    <p class="col-8">CTY 01</p>
+                </div>
+                <div class="row"> 
+                    <p class="col-4"> Phụ trách:</p>
+                    <p class="col-8">Lê Khác Hòa</p>
+                </div>
+                <div class="row"> 
+                    <p class="col-4"> Năm:</p>
+                    <p class="col-8">2024</p>
+                </div>
+            </div>
+        </div>
+        <table id="quotationTable" class="table table-bordered table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Tháng</th>
+                    <th>Tổng tiền</th>
+                    <th>Trọng lượng (N.W)</th>
+                    <th>Trọng lượng (G.W)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <script>
+                    for (let i = 1; i <= 12; i++) {
+                        document.write(`
+                            <tr>
+                                <td>${i}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        `);
+                    }
+                </script>
+                <tr>
+                    <td>Tổng</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="../components/commonLayout.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>
