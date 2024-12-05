@@ -20,7 +20,7 @@
             z-index: 2;
         }
         .fixed-column-2 {
-            width: 80px;
+            width: 85px;
             height: 45px;
             position: sticky;
             left: 80px;
@@ -50,7 +50,7 @@
         }
         th, td {
             white-space: nowrap;
-            /* text-align: center; */
+            text-align: center;
             font-size: 12px;
             /* width: 10%; */
         }
@@ -82,21 +82,117 @@
 <body onload="loadHeader(); loadFooter()">
     <div id="header-placeholder"></div>
     <div class="container">
-        <h2 class="text-center mb-4">Tải Theo Khách Hàng</h2>
+        <h2 class="text-center mb-4">Thống kê tải</h2>
         <div class="mb-3">
             <input type="text" id="searchInput" class="form-control" onkeyup="searchFunction()" placeholder="Tìm kiếm theo khách hàng">
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <div class="row align-items-center">
                 <label for="monthYearSelect" class="col-form-label col-4" style="font-size: 14px;">Chọn tháng:</label>
                 <div class="col-8">
                     <input type="month" id="monthYearSelect" class="form-control" value="2024-08">
                 </div>
             </div>
+        </div> -->
+        <div class="mb-3">
+            <div class="align-items-center">
+                <div class="d-flex align-items-center">
+                    <label for="startDate" class="me-2">Từ ngày:</label>
+                    <input type="date" id="startDate" class="form-control">
+                </div>
+            </div>
+            <div class="align-items-center mt-3">
+                <div class="d-flex align-items-center">
+                    <label for="endDate" class="me-2">Tới ngày:</label>
+                    <input type="date" id="endDate" class="form-control">
+                </div>
+            </div>
         </div>
-        
-        <div class="table-responsive">
-            <table id="quotationTable" class="table table-bordered table-hover">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button style="font-size: 14px;" class="nav-link active" id="quotation-tab" data-bs-toggle="tab" data-bs-target="#quotationTableContainer" type="button" role="tab" aria-controls="quotationTableContainer" aria-selected="true">Theo khách hàng</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button style="font-size: 14px;" class="nav-link" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pendingPaymentsContainer" type="button" role="tab" aria-controls="pendingPaymentsContainer" aria-selected="false">Chi tiết giao hàng</button>
+            </li>
+        </ul>
+        <div class="tab-content " id="myTabContent">
+            <div class="tab-pane fade show active table-responsive" id="quotationTableContainer" role="tabpanel" aria-labelledby="quotation-tab">
+                
+                <table id="quotationTable1" class="table table-bordered table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="fixed-column">Khách hàng</th>
+                            <th class="fixed-column-2">Phụ trách</th>
+                            
+                            <th class="fixed-column-2">Tổng tiền</th>
+                            <th class="fixed-column-2">TL (N.W)</th>
+                            <th class="fixed-column-2">TL (G.W)</th>
+                            <th class="fixed-column-2">Gần đây</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+                <div class="row mb-3">
+                    <div class="justify-content-between col-6" style="margin-top: 2px;">
+                        <div class="d-flex align-items-center">
+                            <label class="" for="rowsPerPage">Số dòng:</label>
+                            <select id="rowsPerPage" class="form-select" style="width: 50%;" onchange="changeRowsPerPage()">
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="50">100</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="pagination" class="pagination col-6"></div>
+                 </div>
+            </div>
+            <div class="tab-pane fade" id="pendingPaymentsContainer" role="tabpanel" aria-labelledby="pending-tab">
+                
+                <div class="table-responsive">
+                    <table id="quotationTable2" class="table table-bordered table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="fixed-column">Khách hàng</th>
+                                
+                                <th class="fixed-column-2">Ngày giao</th>
+                                <th class="fixed-column-2">Số phiếu</th>
+                                <th class="fixed-column-2">Tên hàng</th>
+                                <th class="fixed-column-2">Quy cách</th>
+                                <th class="fixed-column-2">Số lượng</th>
+                                <th class="fixed-column-2">Đơn vị</th>
+                                <th class="fixed-column-2">Đơn giá</th>
+                                <th class="fixed-column-2">Trị giá</th>
+                                <th class="fixed-column-2">Trị giá VAT</th>
+                                <th class="fixed-column-2">Thành tiền</th>
+                                <th class="fixed-column-2">TL (N.W)</th>
+                                <th class="fixed-column-2">Công nợ</th>
+                                <th class="fixed-column-2">Số PO</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBodyTai">
+                        </tbody>
+                    </table>
+                    <div class="row mb-3">
+                        <div class="justify-content-between col-6" style="margin-top: 2px;">
+                            <div class="d-flex align-items-center">
+                                <label class="" for="rowsPerPage">Số dòng:</label>
+                                <select id="rowsPerPage2" class="form-select" style="width: 50%;" onchange="changeRowsPerPage2()">
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="50">100</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="pagination2" class="pagination col-6"></div>
+                     </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- <div class="table-responsive">
+            <table id="quotationTable1" class="table table-bordered table-hover">
                 <thead class="table-light">
                     <tr>
                         <th class="fixed-column">Khách hàng</th>
@@ -109,12 +205,11 @@
                     </tr>
                 </thead>
                 <tbody id="tableBody">
-                    <!-- Nội dung bảng sẽ được load qua JS -->
                 </tbody>
             </table>
-        </div>
+        </div> -->
         <!-- Phân trang -->
-        <div class="row mb-3">
+        <!-- <div class="row mb-3">
             <div class="justify-content-between col-6" style="margin-top: 20px;">
                 <div class="d-flex align-items-center">
                     <label class="" for="rowsPerPage">Số dòng:</label>
@@ -126,7 +221,32 @@
                 </div>
             </div>
             <div id="pagination" class="pagination col-6"></div>
-         </div>
+         </div> -->
+         <!-- <div class="table-responsive">
+            <table id="quotationTable2" class="table table-bordered table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th class="fixed-column">Khách hàng</th>
+                        
+                        <th class="fixed-column-2">Ngày giao</th>
+                        <th class="fixed-column-2">Số phiếu</th>
+                        <th class="fixed-column-2">Tên hàng</th>
+                        <th class="fixed-column-2">Quy cách</th>
+                        <th class="fixed-column-2">Số lượng</th>
+                        <th class="fixed-column-2">Đơn vị</th>
+                        <th class="fixed-column-2">Đơn giá</th>
+                        <th class="fixed-column-2">Trị giá</th>
+                        <th class="fixed-column-2">Trị giá VAT</th>
+                        <th class="fixed-column-2">Thành tiền</th>
+                        <th class="fixed-column-2">TL (N.W)</th>
+                        <th class="fixed-column-2">Công nợ</th>
+                        <th class="fixed-column-2">Số PO</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBodyTai">
+                </tbody>
+            </table>
+        </div> -->
     </div>
     <script src="../components/commonLayout.js"></script>
     <script src="../js/auth.js"></script>

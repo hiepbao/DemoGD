@@ -46,6 +46,9 @@ function updatePagination() {
     const button = document.createElement("button");
     button.classList.add("btn", "btn-sm", "btn-primary");
     button.textContent = i;
+    if (i === currentPage) {
+      button.classList.add("active");
+  }
     button.onclick = () => {
       currentPage = i;
       loadTable();

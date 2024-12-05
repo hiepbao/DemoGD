@@ -3,7 +3,7 @@ const data = [];
 for (let i = 1; i <= 50; i++) {
   data.push({
     id: i,
-    customer: `CTY 0${i}`,
+    customer: "海派沙发 1 公司：\n CTY HAPPY FURNITURE - MIỀN TRUNG",
     invoice: `BG240801-${i * 10}`,
     date: "23-08-2024",
     item: `Đinh F${i * 10}`,
@@ -18,6 +18,8 @@ for (let i = 1; i <= 50; i++) {
     debt: "",
   });
 }
+
+
 
 let currentPage = 1;
 let rowsPerPage = 20;
@@ -38,18 +40,13 @@ function loadTable() {
             <td class="fixed-column">${row.customer}</td>
            
             <td id="formattedDate" class="fixed-column-2">${row.date}</td>
-            <td>${row.invoice}</td>
-            <td>${row.item}</td>
-            <td>${row.specs}</td>
-            <td id="formattedQuantity">${formatQuantity(row.quantity)}</td>
-            <td>${row.unit}</td>
-            <td>${formatNumber(row.price)}</td>
-            <td>${formatNumber(row.value)}</td>
-            <td>${formatNumber(row.vat)}</td>
-            <td>${formatNumber(row.total)}</td>
-            <td>${formatWeight(row.weight)}</td>
-            <td>${row.debt}</td>
-            <td>${row.debt}</td>
+            <td class="fixed-column-2">${row.invoice}</td>
+            <td class="fixed-column-2">${row.debt}</td>
+            <td class="fixed-column-2">${row.debt}</td>
+            <td class="fixed-column-2">${formatNumber(row.price)}</td>
+            <td class="fixed-column-2">${formatNumber(row.vat)}</td>
+            <td class="fixed-column-2">${formatNumber(row.total)}</td>
+            
         `;
     tableBody.appendChild(tr);
   });
@@ -67,6 +64,9 @@ function updatePagination() {
     const button = document.createElement("button");
     button.classList.add("btn", "btn-sm", "btn-primary");
     button.textContent = i;
+    if (i === currentPage) {
+        button.classList.add("active");
+    }
     button.onclick = () => {
       currentPage = i;
       loadTable();

@@ -4,7 +4,7 @@ for (let i = 1; i <= 50; i++) {
     id: i,
     customer: `CTY ${i.toString().padStart(2, "0")}`,
     currentDebt: Math.floor(Math.random() * 1000000),
-    debt: `${(Math.random() * 1000)}`,
+    debt: "0",
     debtTerm: 60,
     overdueDebt: Math.floor(Math.random() * 1000000),
     dueDate: "0",
@@ -59,6 +59,9 @@ function updatePagination() {
     const button = document.createElement("button");
     button.classList.add("btn", "btn-sm", "btn-primary");
     button.textContent = i;
+    if (i === currentPage) {
+      button.classList.add("active");
+  }
     button.onclick = () => {
       currentPage = i;
       loadTable();

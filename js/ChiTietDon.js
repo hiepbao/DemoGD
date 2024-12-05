@@ -40,7 +40,6 @@ function loadTable() {
             <td>${formatNumber(row.vat)}</td>
             <td>${formatNumber(row.total)}</td>
             <td>${formatWeight(row.weight)}</td>
-            <td>${row.debt}</td>
         `;
         tableBody.appendChild(tr);
     });
