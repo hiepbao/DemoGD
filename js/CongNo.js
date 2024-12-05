@@ -4,7 +4,7 @@ for (let i = 1; i <= 50; i++) {
     id: i,
     customer: `CTY ${i.toString().padStart(2, "0")}`,
     currentDebt: Math.floor(Math.random() * 1000000),
-    debt: "0",
+    debt: Math.random() < 0.5 ? "0" : "1",
     debtTerm: 60,
     overdueDebt: Math.floor(Math.random() * 1000000),
     dueDate: "0",
@@ -41,7 +41,9 @@ function loadTable() {
                     <td>${row.totalDelivery}</td>
                     <td>${row.uncheckedDebt}</td>
                     <td>${row.manager}</td>
-                    <td>${row.debt}</td>
+                    <td>
+                      ${row.debt === "1" ? "✔" : ""}
+                    </td>
                 `;
     tableBody.appendChild(tr);
   });

@@ -15,7 +15,8 @@ for (let i = 1; i <= 50; i++) {
     vat: Math.floor(Math.random() * 1000000),
     total: Math.floor(Math.random() * 15000000) + 1000000,
     weight: (Math.random() * 500).toFixed(2),
-    debt: "",
+    debt: Math.random() < 0.5 ? "0" : "1",
+    po: Math.floor(Math.random() * 1000000)
   });
 }
 
@@ -41,8 +42,8 @@ function loadTable() {
            
             <td id="formattedDate" class="fixed-column-2">${row.date}</td>
             <td class="fixed-column-2">${row.invoice}</td>
-            <td class="fixed-column-2">${row.debt}</td>
-            <td class="fixed-column-2">${row.debt}</td>
+            <td class="fixed-column-2">${row.po}</td>
+            <td class="fixed-column-2">${row.debt === "1" ? "✔" : ""}</td>
             <td class="fixed-column-2">${formatNumber(row.price)}</td>
             <td class="fixed-column-2">${formatNumber(row.vat)}</td>
             <td class="fixed-column-2">${formatNumber(row.total)}</td>

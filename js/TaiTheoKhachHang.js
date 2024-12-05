@@ -18,7 +18,7 @@ for (let i = 1; i <= 50; i++) {
     value: Math.floor(Math.random() * 1000000),
     vat: Math.floor(Math.random() * 1000000),
     weight: (Math.random() * 500).toFixed(2),
-    debt: "",
+    debt: Math.random() < 0.5 ? "0" : "1",
   });
 }
 
@@ -70,7 +70,7 @@ function loadTableGeneric(data, tableBodyId) {
         <td class="fixed-column-2">${formatNumber(row.vat)}</td>
         <td class="fixed-column-2">${formatNumber(row.total)}</td>
         <td class="fixed-column-2">${formatWeight(row.weight)}</td>
-        <td class="fixed-column-2">${row.debt}</td>
+        <td class="fixed-column-2">${row.debt === "1" ? "✔" : ""}</td>
       `;
       
     }
